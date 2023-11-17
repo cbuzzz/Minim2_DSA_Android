@@ -24,6 +24,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         Intent i = new Intent (Register.this, MainActivity.class);
         Timer timer = new Timer();
+
         volver = findViewById(R.id.volverBtn);
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,11 +51,16 @@ public class Register extends AppCompatActivity {
                 String UserPassword2 = password2.getText().toString();
                 Log.d("Valor password 2: ", String.valueOf(UserPassword2));
 
-                if((UserPassword1.equals(UserPassword2))&& (user != "") && (UserPassword1 != "")){
+                if((UserPassword1.equals(UserPassword2))&& (user != "") && (UserPassword1 != "")) {
                     //Se registraría
                     TextView success = (TextView) findViewById(R.id.RegCor);
                     success.setVisibility(View.VISIBLE);
-                    timer.schedule(i, 2000);
+                    timer.schedule(new TimerTask() {
+                        public void run() {
+                            Intent i = new Intent (Register.this, MainActivity.class);
+                            startActivity(i);
+                        }}, 2000);
+                }
 
                 else{
                     startActivity(i);
@@ -62,4 +68,4 @@ public class Register extends AppCompatActivity {
             }
         });
     }
-}
+    }
