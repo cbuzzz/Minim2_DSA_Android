@@ -18,6 +18,9 @@ import java.util.TimerTask;
 
 public class Register extends AppCompatActivity {
     ImageButton volver;
+    String USER;
+    String PASSWORD;
+    String PHONE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,10 @@ public class Register extends AppCompatActivity {
                 String user = username.getText().toString();
                 Log.d("Valor username: ", String.valueOf(user));
 
+                TextInputEditText phonenumber = (TextInputEditText) findViewById(R.id.phone);
+                String phone = username.getText().toString();
+                Log.d("Valor teléfono: ", String.valueOf(phone));
+
                 EditText password1 = (EditText) findViewById(R.id.password1);
                 String UserPassword1 = password1.getText().toString();
                 Log.d("Valor password 1: ", String.valueOf(UserPassword1));
@@ -51,19 +58,24 @@ public class Register extends AppCompatActivity {
                 String UserPassword2 = password2.getText().toString();
                 Log.d("Valor password 2: ", String.valueOf(UserPassword2));
 
-                if((UserPassword1.equals(UserPassword2))&& (user != "") && (UserPassword1 != "")) {
-                    //Se registraría
+                if((UserPassword1.equals(UserPassword2))&& (user != "") && (UserPassword1 != "") && (phone != "")) {
+                    //AQUÍ DEBERÁ AÑADIR EL USUARIO REGISTRADO A LA BBDD
+                    USER = user;
+                    PASSWORD = UserPassword1;
+                    PHONE = phone;
                     TextView success = (TextView) findViewById(R.id.RegCor);
                     success.setVisibility(View.VISIBLE);
                     timer.schedule(new TimerTask() {
                         public void run() {
                             Intent i = new Intent (Register.this, MainActivity.class);
                             startActivity(i);
+
                         }}, 2000);
                 }
 
                 else{
-                    startActivity(i);
+                    TextView fail = (TextView) findViewById(R.id.RegFail);
+                    fail.setVisibility(View.VISIBLE);
                 }
             }
         });

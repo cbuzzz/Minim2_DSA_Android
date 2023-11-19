@@ -11,13 +11,15 @@
         android:layout_width="232dp"
         android:layout_height="70dp"
         android:ems="10"
+        android:hint="Contraseña"
         android:inputType="textPassword"
         android:onClick="password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputUsername2"
-        app:layout_constraintVertical_bias="0.01999998" />
+        app:layout_constraintVertical_bias="0.049" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputUsername"
@@ -75,10 +77,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="hint"
+        android:hint="Usuario"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputUsername"
-        app:layout_constraintVertical_bias="0.26"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintVertical_bias="0.258"
+        tools:layout_editor_absoluteX="-1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
