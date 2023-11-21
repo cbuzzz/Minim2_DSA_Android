@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,7 +11,7 @@
         android:id="@+id/volver2"
         android:layout_width="93dp"
         android:layout_height="67dp"
-        android:contentDescription=""
+        android:contentDescription="Volver a Home"
         android:onClick="volver2"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +28,10 @@
         android:background="#E5E5E5"
         android:padding="16dp"
         android:scrollbars="vertical"
-        tools:listitem="@layout/row_layout" />
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_layout"
+        tools:visibility="visible" />
 </LinearLayout>
 
 

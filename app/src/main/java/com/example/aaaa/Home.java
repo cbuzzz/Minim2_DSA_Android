@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Home extends AppCompatActivity {
     Button shop;
-
+    Button login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,5 +23,15 @@ public class Home extends AppCompatActivity {
             }
 
         });
+        login = (Button) findViewById(R.id.salirBtn);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 }

@@ -33,5 +33,6 @@ public class Shop extends AppCompatActivity {
 
         MyAdapter adapter = new MyAdapter();
         recyclerView.setAdapter(adapter);
+        adapter.setItems(Item.getData());
     }
 }

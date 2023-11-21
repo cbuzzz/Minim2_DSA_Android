@@ -3,182 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:visibility="visible">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="408dp"
-        android:layout_height="732dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
-        <ImageView
-            android:id="@+id/icon6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="301dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.525"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
-
-        <TextView
-            android:id="@+id/firstLine6"
-            android:layout_width="302dp"
-            android:layout_height="47dp"
-            android:layout_alignWithParentIfMissing="true"
-            android:gravity="center_vertical"
-            android:text="Aquí estará el nombre"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.484" />
-
-        <TextView
-            android:id="@+id/secondLine6"
-            android:layout_width="297dp"
-            android:layout_height="57dp"
-            android:layout_marginLeft="272dp"
-            android:layout_marginRight="29dp"
-            android:layout_marginBottom="296dp"
-            android:ellipsize="marquee"
-            android:maxLines="1"
-            android:text="Aquí tendremos la descripción"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.902"
-            app:layout_constraintLeft_toRightOf="@id/icon"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <ImageView
-            android:id="@+id/icon5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="301dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.352"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
-
-        <TextView
-            android:id="@+id/firstLine5"
-            android:layout_width="302dp"
-            android:layout_height="47dp"
-            android:layout_alignWithParentIfMissing="true"
-            android:gravity="center_vertical"
-            android:text="Aquí estará el nombre"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.327" />
-
-        <TextView
-            android:id="@+id/secondLine5"
-            android:layout_width="297dp"
-            android:layout_height="57dp"
-            android:layout_marginLeft="272dp"
-            android:layout_marginRight="29dp"
-            android:layout_marginBottom="404dp"
-            android:ellipsize="marquee"
-            android:maxLines="1"
-            android:text="Aquí tendremos la descripción"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.902"
-            app:layout_constraintLeft_toRightOf="@id/icon"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <ImageView
-            android:id="@+id/icon4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="301dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.179"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
-
-        <TextView
-            android:id="@+id/firstLine4"
-            android:layout_width="302dp"
-            android:layout_height="47dp"
-            android:layout_alignWithParentIfMissing="true"
-            android:gravity="center_vertical"
-            android:text="Aquí estará el nombre"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.169" />
-
-        <TextView
-            android:id="@+id/secondLine4"
-            android:layout_width="297dp"
-            android:layout_height="57dp"
-            android:layout_marginLeft="272dp"
-            android:layout_marginRight="29dp"
-            android:layout_marginBottom="512dp"
-            android:ellipsize="marquee"
-            android:maxLines="1"
-            android:text="Aquí tendremos la descripción"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.906"
-            app:layout_constraintLeft_toRightOf="@id/icon"
-            app:layout_constraintRight_toRightOf="parent" />
 
         <ImageView
             android:id="@+id/icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="301dp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.006"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/ic_launcher_foreground" />
-
-        <TextView
-            android:id="@+id/secondLine"
-            android:layout_width="297dp"
-            android:layout_height="57dp"
-            android:layout_marginLeft="272dp"
-            android:layout_marginRight="29dp"
-            android:layout_marginBottom="620dp"
-            android:ellipsize="marquee"
-            android:maxLines="1"
-            android:text="Aquí tendremos la descripción"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.912"
-            app:layout_constraintLeft_toRightOf="@id/icon"
-            app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
             android:id="@+id/firstLine"
@@ -188,13 +39,27 @@
             android:gravity="center_vertical"
             android:text="Aquí estará el nombre"
             android:textSize="24sp"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@+id/icon"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.011" />
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/secondLine"
+            android:layout_width="297dp"
+            android:layout_height="57dp"
+            android:ellipsize="marquee"
+            android:maxLines="1"
+            android:text="Aquí tendremos la descripción"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toBottomOf="@+id/firstLine" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
