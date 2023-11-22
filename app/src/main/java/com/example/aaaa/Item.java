@@ -36,9 +36,9 @@ public class Item {
         List<Item> articles = new ArrayList<>();
 
         // Agregar artículos a la lista (esto es solo un ejemplo, ajusta según tus necesidades)
-        articles.add(new Item("Título 1", "Descripción 1"));
-        articles.add(new Item("Título 2", "Descripción 2"));
-        articles.add(new Item("Título 3", "Descripción 3"));
+        articles.add(new Item("Magnesio", "Type: Potion, Cost: 10, Stat: +20 speed"));
+        articles.add(new Item("Escudo de madera", "Type: Weapon, Cost: 10, Stat: +5 armor"));
+        articles.add(new Item("Baya", "Type: Food, Cost: 40, Stat: Full Health"));
 
         return articles;
     }
