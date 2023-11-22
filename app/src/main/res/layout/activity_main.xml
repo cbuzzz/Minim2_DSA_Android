@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputUsername2"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputUsername"
@@ -38,12 +38,10 @@
         android:id="@+id/LoginBtn"
         android:layout_width="140dp"
         android:layout_height="56dp"
-        android:layout_marginTop="44dp"
         android:onClick="login"
         android:text="LOGIN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.0" />
@@ -83,5 +81,18 @@
         app:layout_constraintTop_toBottomOf="@+id/inputUsername"
         app:layout_constraintVertical_bias="0.258"
         tools:layout_editor_absoluteX="-1dp" />
+
+    <TextView
+        android:id="@+id/TrappyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TRAPPY"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/inputUsername2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputUsername"
+        app:layout_constraintVertical_bias="0.397" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

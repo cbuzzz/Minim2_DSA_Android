@@ -46,7 +46,7 @@ public class Register extends AppCompatActivity {
                 Log.d("Valor username: ", String.valueOf(user));
 
                 TextInputEditText phonenumber = (TextInputEditText) findViewById(R.id.phone);
-                String phone = username.getText().toString();
+                String phone = phonenumber.getText().toString();
                 Log.d("Valor teléfono: ", String.valueOf(phone));
 
                 EditText password1 = (EditText) findViewById(R.id.password1);
@@ -58,12 +58,13 @@ public class Register extends AppCompatActivity {
                 String UserPassword2 = password2.getText().toString();
                 Log.d("Valor password 2: ", String.valueOf(UserPassword2));
 
-                if((UserPassword1.equals(UserPassword2))&& (user != "") && (UserPassword1 != "") && (phone != "")) {
+                if((UserPassword1.equals(UserPassword2)) && (!user.equals(null)) && (!UserPassword1.equals(null)) && (!phone.equals(null))) {
                     //AQUÍ DEBERÁ AÑADIR EL USUARIO REGISTRADO A LA BBDD
                     USER = user;
                     PASSWORD = UserPassword1;
                     PHONE = phone;
-                    TextView success = (TextView) findViewById(R.id.RegCor);
+                    TextView success = (TextView) findViewById(R.id.Notif);
+                    success.setText("Te has registrado correctamente");
                     success.setVisibility(View.VISIBLE);
                     timer.schedule(new TimerTask() {
                         public void run() {
@@ -73,9 +74,15 @@ public class Register extends AppCompatActivity {
                         }}, 2000);
                 }
 
-                else{
-                    TextView fail = (TextView) findViewById(R.id.RegFail);
+                else if((user == "") || (UserPassword1 == "") || (phone == "") ){
+                    TextView fail = (TextView) findViewById(R.id.Notif);
+                    fail.setText("Alguno de los datos introducidos no son válidos");
                     fail.setVisibility(View.VISIBLE);
+                }
+                else{
+                    TextView fail1 = (TextView) findViewById(R.id.Notif);
+                    fail1.setText("Las contraseñas no coinciden");
+                    fail1.setVisibility(View.VISIBLE);
                 }
             }
         });
