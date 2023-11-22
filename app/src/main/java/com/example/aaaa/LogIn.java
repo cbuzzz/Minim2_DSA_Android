@@ -9,9 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class LogIn extends AppCompatActivity {
 
     Button register;
     Button login;
@@ -19,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         login = (Button) findViewById(R.id.LoginBtn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (MainActivity.this, Home.class);
+                Intent i = new Intent (LogIn.this, Home.class);
                 startActivity(i);
             }
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (MainActivity.this, Register.class);
+                Intent i = new Intent (LogIn.this, Register.class);
                 startActivity(i);
             }
 

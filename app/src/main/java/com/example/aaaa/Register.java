@@ -25,14 +25,14 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        Intent i = new Intent (Register.this, MainActivity.class);
+        Intent i = new Intent (Register.this, LogIn.class);
         Timer timer = new Timer();
 
         volver = findViewById(R.id.volverBtn);
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (Register.this, MainActivity.class);
+                Intent i = new Intent (Register.this, LogIn.class);
                 startActivity(i);
             }
         });
@@ -68,7 +68,7 @@ public class Register extends AppCompatActivity {
                     success.setVisibility(View.VISIBLE);
                     timer.schedule(new TimerTask() {
                         public void run() {
-                            Intent i = new Intent (Register.this, MainActivity.class);
+                            Intent i = new Intent (Register.this, LogIn.class);
                             startActivity(i);
 
                         }}, 2000);
