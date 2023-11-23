@@ -3,6 +3,7 @@ package com.example.aaaa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,17 +21,24 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
-
-
 public class Register extends AppCompatActivity {
-    ImageButton volver;
-    String USER;
-    String PASSWORD;
-    String PHONE;
-    APITrappy apiTrappy;
+    private static final String SHARED_PREFS = "Data";
 
+    public static final String TEXT1 = "Username: ";
+    public static final String TEXT2 = "Password: ";
+    public static final String TEXT3 = "Correo: ";
+    public static final String TEXT4 = "Tlf: ";
+    ImageButton volver;
+    String user1;
+    String phone;
+    String mail;
+    String UserPassword1;
+    String UserPassword2;
+    APITrappy apiTrappy;
+    Button register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +46,27 @@ public class Register extends AppCompatActivity {
         Intent i = new Intent(Register.this, LogIn.class);
         Timer timer = new Timer();
         apiTrappy = Client.getClient().create(APITrappy.class);
+
+        TextInputEditText username = (TextInputEditText) findViewById(R.id.username);
+        user1 = username.getText().toString();
+        Log.d("Valor username: ", String.valueOf(user1));
+
+        EditText phonenumber = (EditText) findViewById(R.id.phone);
+        phone = phonenumber.getText().toString();
+        Log.d("Valor teléfono: ", String.valueOf(phone));
+
+        TextInputEditText mailaddress = (TextInputEditText) findViewById(R.id.mail);
+        mail = mailaddress.getText().toString();
+        Log.d("Valor mail: ", String.valueOf(mail));
+
+        EditText password1 = (EditText) findViewById(R.id.password1);
+        UserPassword1 = password1.getText().toString();
+        Log.d("Valor password 1: ", String.valueOf(UserPassword1));
+
+        EditText password2 = (EditText) findViewById(R.id.password2);
+        UserPassword2 = password2.getText().toString();
+        Log.d("Valor password 2: ", String.valueOf(UserPassword2));
+
 
         volver = findViewById(R.id.volverBtn);
         volver.setOnClickListener(new View.OnClickListener() {
@@ -48,36 +77,18 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        Button register = (Button) findViewById(R.id.RegisterBtn);
+
+        register = (Button) findViewById(R.id.RegisterBtn);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextInputEditText username = (TextInputEditText) findViewById(R.id.username);
-                String user1 = username.getText().toString();
-                Log.d("Valor username: ", String.valueOf(user1));
 
-                EditText phonenumber = (EditText) findViewById(R.id.phone);
-                String phone = phonenumber.getText().toString();
-                int tlf = Integer.parseInt(phone);
-                Log.d("Valor teléfono: ", String.valueOf(phone));
 
-                TextInputEditText mailaddress = (TextInputEditText) findViewById(R.id.mail);
-                String mail = mailaddress.getText().toString();
-                Log.d("Valor mail: ", String.valueOf(mail));
-
-                EditText password1 = (EditText) findViewById(R.id.password1);
-                String UserPassword1 = password1.getText().toString();
-                Log.d("Valor password 1: ", String.valueOf(UserPassword1));
-
-                EditText password2 = (EditText) findViewById(R.id.password2);
-                String UserPassword2 = password2.getText().toString();
-                Log.d("Valor password 2: ", String.valueOf(UserPassword2));
-
-                Usuario usuario = new Usuario(user1, UserPassword1, tlf, mail);
+                Usuario usuario = new Usuario(user1, UserPassword1, phone, mail);
 
                 Intent intent;
 
-                apiTrappy.register(new com.example.aaaa.models.RegisterModel(user1, UserPassword1, mail, tlf)).enqueue(new Callback<Void>() {
+                apiTrappy.register(new com.example.aaaa.models.Usuario(user1, UserPassword1,phone, mail )).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         Log.d("Code", "" + response.code());
@@ -89,8 +100,9 @@ public class Register extends AppCompatActivity {
                             timer.schedule(new TimerTask() {
                                 public void run() {
                                     Intent i = new Intent(Register.this, LogIn.class);
-                                    i.putExtra("user", user1);
+                                    /*i.putExtra("user", user1);
                                     i.putExtra("password", UserPassword1);
+                                     */
                                     startActivity(i);
 
                                 }
@@ -114,6 +126,15 @@ public class Register extends AppCompatActivity {
                 Log.d("Code", "end login");
             }
         });
+    }
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(TEXT1, user1);
+        editor.putString(TEXT2, UserPassword1);
+        editor.putString(TEXT3, mail);
+        editor.putString(TEXT4, phone);
+        editor.apply();
     }
 }
 

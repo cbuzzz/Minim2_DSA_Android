@@ -3,10 +3,10 @@ package com.example.aaaa.models;
 public class Usuario {
     private String username;
     private String password;
-    private int tlf;
+    private String tlf;
     private String mail;
 
-    public Usuario (String username, String password, int tlf, String mail){
+    public Usuario (String username, String password, String tlf, String mail){
         this.username = username;
         this.password = password;
         this.tlf = tlf;
@@ -18,8 +18,8 @@ public class Usuario {
     public String getPassword(){return password;}
     public void setPassword(String password){this.password = password;}
 
-    public int getTlf(){return tlf;}
-    public void setTlf(int tlf){this.tlf = tlf;}
+    public String getTlf(){return tlf;}
+    public void setTlf(String tlf){this.tlf = tlf;}
 
     public String getMail(){return mail;}
     public void setMail(String mail){this.mail = mail;}

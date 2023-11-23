@@ -1,12 +1,14 @@
 package com.example.aaaa.models;
 
+
 public class RegisterModel {
+/*
     String nombre;
     String password;
     String email;
-    int tlf;
+    String tlf;
 
-    public RegisterModel (String nombre, String password, String email, int tlf){
+    public RegisterModel (String nombre, String password, String email, String tlf){
         this.nombre=nombre;
         this.password=password;
         this.email = email;
@@ -21,11 +23,11 @@ public class RegisterModel {
         this.email = email;
     }
 
-    public int getTlf() {
+    public String getTlf() {
         return tlf;
     }
 
-    public void setTlf(int tlf) {
+    public void setTlf(String tlf) {
         this.tlf = tlf;
     }
 
@@ -44,4 +46,6 @@ public class RegisterModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
+ */
 }
