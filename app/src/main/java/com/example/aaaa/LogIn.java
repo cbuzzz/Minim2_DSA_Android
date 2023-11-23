@@ -2,6 +2,7 @@ package com.example.aaaa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -58,7 +59,7 @@ public class LogIn extends AppCompatActivity {
                 password = (EditText) findViewById(R.id.password);
                 String UserPassword = password.getText().toString();
 
-                apiTrappy.logIn(new com.example.aaaa.models.LoginModel(user, UserPassword)).enqueue(new Callback<Void>(){
+                /*apiTrappy.login(new com.example.aaaa.models.LoginModel(user, UserPassword)).enqueue(new Callback<Void>(){
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         Log.d("Code", ""+response.code());
 
@@ -84,7 +85,7 @@ public class LogIn extends AppCompatActivity {
                         Log.d("Code",msg);
                         Toast.makeText(getApplicationContext(),"msg", Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
                 Log.d("Code", "end login");
             }
              });

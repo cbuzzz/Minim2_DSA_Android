@@ -6,6 +6,9 @@ public class Usuario {
     private String tlf;
     private String mail;
 
+    public Usuario(){
+
+    }
     public Usuario (String username, String password, String tlf, String mail){
         this.username = username;
         this.password = password;
@@ -23,4 +26,8 @@ public class Usuario {
 
     public String getMail(){return mail;}
     public void setMail(String mail){this.mail = mail;}
+
+    public String toString(){
+        return username;
+    }
 }
