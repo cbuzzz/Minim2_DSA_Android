@@ -77,7 +77,7 @@ public class Register extends AppCompatActivity {
 
                 Intent intent;
 
-                apiTrappy.register(new com.example.aaaa.models.RegisterModel(user1, UserPassword1, mail, tlf)).enqueue(new Callback<Void>() {
+                /*apiTrappy.register(new com.example.aaaa.models.RegisterModel(user1, UserPassword1, mail, tlf)).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         Log.d("Code", "" + response.code());
@@ -109,7 +109,7 @@ public class Register extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "msg", Toast.LENGTH_SHORT).show();
 
 
-                    }
+                    }*/
                 });
                 Log.d("Code", "end login");
             }

@@ -4,6 +4,9 @@ public class LoginModel {
     String nombre;
     String password;
 
+    public LoginModel(){
+    }
+
     public LoginModel (String username, String password){
         this.nombre=username;
         this.password=password;
