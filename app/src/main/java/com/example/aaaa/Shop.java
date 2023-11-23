@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.aaaa;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,8 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.aaaa.R;
-import com.example.proyecto.models.Item;
+import com.example.aaaa.models.Item;
 
 public class Shop extends AppCompatActivity {
     ImageButton volver2;

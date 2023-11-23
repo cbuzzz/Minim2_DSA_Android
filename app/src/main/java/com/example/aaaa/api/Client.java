@@ -1,10 +1,9 @@
-package com.example.proyecto.api;
+package com.example.aaaa.api;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 public class Client {
 
     public static Retrofit getClient() {
@@ -22,4 +21,6 @@ public class Client {
         return retrofit;
 
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.example.proyecto;
+package com.example.aaaa;
 
 
 import android.view.LayoutInflater;
@@ -8,8 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.aaaa.R;
-import com.example.proyecto.models.Item;
+import com.example.aaaa.models.Item;
 
 import java.util.List;
 
