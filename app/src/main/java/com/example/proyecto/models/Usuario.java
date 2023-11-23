@@ -1,6 +1,4 @@
-package com.example.aaaa;
-
-import android.net.MailTo;
+package com.example.proyecto.models;
 
 public class Usuario {
     private String username;

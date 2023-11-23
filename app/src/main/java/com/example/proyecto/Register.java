@@ -1,4 +1,4 @@
-package com.example.aaaa;
+package com.example.proyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.aaaa.R;
+import com.example.proyecto.models.Usuario;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Timer;

@@ -1,4 +1,4 @@
-package com.example.aaaa;
+package com.example.proyecto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,10 +10,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.aaaa.R;
 import com.google.android.material.textfield.TextInputEditText;
+import com.example.proyecto.api.APITrappy;
+import com.example.proyecto.api.Client;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+
 
 public class LogIn extends AppCompatActivity {
 

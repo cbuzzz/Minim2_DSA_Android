@@ -1,4 +1,4 @@
-package com.example.aaaa;
+package com.example.proyecto;
 
 import org.junit.Test;
 
