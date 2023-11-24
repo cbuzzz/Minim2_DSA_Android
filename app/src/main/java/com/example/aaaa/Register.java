@@ -45,7 +45,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         Intent i = new Intent(Register.this, LogIn.class);
         Timer timer = new Timer();
-        //apiTrappy = Client.getClient().create(APITrappy.class);
+        apiTrappy = Client.getInstance().getApiTrappy();
 
         TextInputEditText username = (TextInputEditText) findViewById(R.id.username);
         user1 = username.getText().toString();
@@ -92,7 +92,7 @@ public class Register extends AppCompatActivity {
                 //apiTrappy.register(new com.example.aaaa.models.RegisterModel(user1, UserPassword1, mail, tlf)).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Log.d("Code", "" + response.code());
+                        Log.d("trappyLog", "" + response.code());
 
                         if (response.code() == 201) {
                             TextView success = (TextView) findViewById(R.id.Notif);
@@ -118,7 +118,7 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         String msg = "Error in retrofit: " + t.toString();
-                        Log.d("Code", msg);
+                        Log.d("trappyLog", msg);
                         Toast.makeText(getApplicationContext(), "msg", Toast.LENGTH_SHORT).show();
 
 
