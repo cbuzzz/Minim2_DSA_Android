@@ -47,25 +47,7 @@ public class Register extends AppCompatActivity {
         Timer timer = new Timer();
         apiTrappy = Client.getInstance().getApiTrappy();
 
-        TextInputEditText username = (TextInputEditText) findViewById(R.id.username);
-        user1 = username.getText().toString();
-        Log.d("Valor username: ", String.valueOf(user1));
 
-        EditText phonenumber = (EditText) findViewById(R.id.phone);
-        phone = phonenumber.getText().toString();
-        Log.d("Valor teléfono: ", String.valueOf(phone));
-
-        TextInputEditText mailaddress = (TextInputEditText) findViewById(R.id.mail);
-        mail = mailaddress.getText().toString();
-        Log.d("Valor mail: ", String.valueOf(mail));
-
-        EditText password1 = (EditText) findViewById(R.id.password1);
-        UserPassword1 = password1.getText().toString();
-        Log.d("Valor password 1: ", String.valueOf(UserPassword1));
-
-        EditText password2 = (EditText) findViewById(R.id.password2);
-        UserPassword2 = password2.getText().toString();
-        Log.d("Valor password 2: ", String.valueOf(UserPassword2));
 
 
         volver = findViewById(R.id.volverBtn);
@@ -83,18 +65,37 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                TextInputEditText username = (TextInputEditText) findViewById(R.id.username);
+                user1 = username.getText().toString();
+                Log.d("Valor username: ", String.valueOf(user1));
+
+                EditText phonenumber = (EditText) findViewById(R.id.phone);
+                phone = phonenumber.getText().toString();
+                Log.d("Valor teléfono: ", String.valueOf(phone));
+
+                TextInputEditText mailaddress = (TextInputEditText) findViewById(R.id.mail);
+                mail = mailaddress.getText().toString();
+                Log.d("Valor mail: ", String.valueOf(mail));
+
+                EditText password1 = (EditText) findViewById(R.id.password1);
+                UserPassword1 = password1.getText().toString();
+                Log.d("Valor password 1: ", String.valueOf(UserPassword1));
+
+                EditText password2 = (EditText) findViewById(R.id.password2);
+                UserPassword2 = password2.getText().toString();
+                Log.d("Valor password 2: ", String.valueOf(UserPassword2));
 
                 Usuario usuario = new Usuario(user1, UserPassword1, phone, mail);
 
                 Intent intent;
 
-                apiTrappy.register(new com.example.aaaa.models.Usuario(user1, UserPassword1,phone, mail )).enqueue(new Callback<Void>() {
+                apiTrappy.register(new com.example.aaaa.models.Usuario(user1,UserPassword1,phone,mail)).enqueue(new Callback<Void>() {
                 //apiTrappy.register(new com.example.aaaa.models.RegisterModel(user1, UserPassword1, mail, tlf)).enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
-                        Log.d("trappyLog", "" + response.code());
+                        Log.d("Código de Register: ", String.valueOf(response));
 
-                        if (response.code() == 201) {
+                        if (response.code()==201) {
                             TextView success = (TextView) findViewById(R.id.Notif);
                             success.setText("Te has registrado correctamente.");
                             success.setVisibility(View.VISIBLE);
@@ -112,22 +113,24 @@ public class Register extends AppCompatActivity {
                             TextView fail1 = (TextView) findViewById(R.id.Notif);
                             fail1.setText("Algunos de los datos introducidos no son válidos.");
                             fail1.setVisibility(View.VISIBLE);
+                            Intent i = new Intent(Register.this, Register.class);
+                            startActivity(i);
                         }
                     }
-
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         String msg = "Error in retrofit: " + t.toString();
-                        Log.d("trappyLog", msg);
+                        Log.d("Mensaje error Register", msg);
                         Toast.makeText(getApplicationContext(), "msg", Toast.LENGTH_SHORT).show();
-
-
+                        Intent i = new Intent(Register.this, Register.class);
+                        startActivity(i);
                     }
                 });
                 Log.d("Code", "end login");
             }
         });
     }
+    /*
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -137,6 +140,7 @@ public class Register extends AppCompatActivity {
         editor.putString(TEXT4, phone);
         editor.apply();
     }
+     */
 }
 
  /*

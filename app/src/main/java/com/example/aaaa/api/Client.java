@@ -9,22 +9,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Client {
 
-    public static final String BASE_URL = "http://10.0.2.2:8080/dsaApp/";
+    public static final String BASE_URL = "https://10.0.2.2:8080/dsaApp/"; //http://localhost:8080/dsaApp
     private static Client instance = null;
     private APITrappy apiTrappy;
-
-
     public static synchronized Client getInstance(){
         if(instance==null){
             instance = new Client();
         }
         return instance;
     }
-
-    public APITrappy getApiTrappy(){
-        return apiTrappy;
-    }
-
     private Client() {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -46,4 +39,5 @@ public class Client {
                 .build();
         apiTrappy = retrofit.create(APITrappy.class);
     }
+    public APITrappy getApiTrappy(){ return apiTrappy; }
 }
