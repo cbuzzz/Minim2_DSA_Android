@@ -15,7 +15,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface APITrappy {
-        @POST("/dsaApp/jugador/Login")
+        @POST("player/login")
         Call<Usuario> login(@Body LoginModel login);
         /*
         @POST("player/register")
@@ -23,9 +23,9 @@ public interface APITrappy {
         @POST("/dsaApp/jugador/Login")
         Call<Void> logIn(@Body LoginModel logIn);
          */
-        @POST("/dsaApp/jugador/Register")
+        @POST("player/register")
         Call<Void> register(@Body Usuario register);
-        @GET("/dsaApp/items/Shop")
+        @GET("items/shop")
         Call<Item> getItems(@Body Item item);
 }
 

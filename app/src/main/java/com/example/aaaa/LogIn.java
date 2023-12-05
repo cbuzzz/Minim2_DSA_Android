@@ -65,9 +65,11 @@ public class LogIn extends AppCompatActivity {
                 Log.d("Valor username Password Login: ", String.valueOf(UserPassword));
 
                 apiTrappy.login(new com.example.aaaa.models.LoginModel(user,UserPassword)).enqueue(new Callback<Usuario>(){
+                    String code;
                     public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                        code = String.valueOf(response.code());
                         Log.d("Code", ""+response.code());
-                        if(response.code()==201){
+                        if(code.equals("201")){
                             editor = sharedPref.edit();
                             editor.putString(KEY_NOMBRE, user);
                             editor.apply();
@@ -77,7 +79,7 @@ public class LogIn extends AppCompatActivity {
                             success.setText("Te has logeado correctamente");
                             success.setVisibility(View.VISIBLE);
                         }
-                        else if (response.code()==404){
+                        else if (code.equals("404")){
                             TextView success = (TextView) findViewById(R.id.notif);
                             success.setText("Usuario o contraseña incorrecto");
                             success.setVisibility(View.VISIBLE);
