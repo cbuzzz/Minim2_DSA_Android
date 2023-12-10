@@ -1,8 +1,8 @@
 package com.example.aaaa.models;
 
 public class LoginModel {
-    String nombre;
-    String password;
+    private String nombre;
+    private String password;
     public LoginModel(){
     }
     public LoginModel (String username, String password){

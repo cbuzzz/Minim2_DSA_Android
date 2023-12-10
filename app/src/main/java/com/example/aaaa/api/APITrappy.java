@@ -16,7 +16,7 @@ import retrofit2.http.Path;
 
 public interface APITrappy {
         @POST("player/login")
-        Call<Usuario> login(@Body LoginModel login);
+        Call<Void> login(@Body LoginModel login);
         /*
         @POST("player/register")
         Call<Usuario> register(@Body RegisterModel registerModel);

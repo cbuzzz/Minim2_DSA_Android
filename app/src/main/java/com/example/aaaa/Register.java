@@ -26,7 +26,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 public class Register extends AppCompatActivity {
     private static final String SHARED_PREFS = "Data";
-
     public static final String TEXT1 = "Username: ";
     public static final String TEXT2 = "Password: ";
     public static final String TEXT3 = "Correo: ";
@@ -43,12 +42,10 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        apiTrappy = Client.getInstance().getApiTrappy();
         Intent i = new Intent(Register.this, LogIn.class);
         Timer timer = new Timer();
         apiTrappy = Client.getInstance().getApiTrappy();
-
-
-
 
         volver = findViewById(R.id.volverBtn);
         volver.setOnClickListener(new View.OnClickListener() {

@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.aaaa.models.LoginModel;
 import com.example.aaaa.models.Usuario;
 import com.google.android.material.textfield.TextInputEditText;
 import com.example.aaaa.api.APITrappy;
@@ -35,11 +36,11 @@ public class LogIn extends AppCompatActivity {
     private static final String KEY_NOMBRE = "";
     String user;
     String UserPassword;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        apiTrappy = Client.getInstance().getApiTrappy();
         Timer timer = new Timer();
         register = (Button) findViewById(R.id.RegisterBtn);
         login = (Button) findViewById(R.id.LoginBtn);
@@ -64,9 +65,10 @@ public class LogIn extends AppCompatActivity {
                 UserPassword = password.getText().toString();
                 Log.d("Valor username Password Login: ", String.valueOf(UserPassword));
 
-                apiTrappy.login(new com.example.aaaa.models.LoginModel(user,UserPassword)).enqueue(new Callback<Usuario>(){
+                LoginModel loginModel = new LoginModel(user, UserPassword);
+                apiTrappy.login(new com.example.aaaa.models.LoginModel(user,UserPassword)).enqueue(new Callback<Void>(){
                     String code;
-                    public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                    public void onResponse(Call<Void> call, Response<Void> response) {
                         code = String.valueOf(response.code());
                         Log.d("Code", ""+response.code());
                         if(code.equals("201")){
@@ -86,7 +88,7 @@ public class LogIn extends AppCompatActivity {
                         }
                     }
                     @Override
-                    public void onFailure(Call<Usuario> call, Throwable t) {
+                    public void onFailure(Call<Void> call, Throwable t) {
                         String msg = "Error in retrofit: " + t.toString();
                         Log.d("Code",msg);
                         Toast.makeText(getApplicationContext(),"msg", Toast.LENGTH_SHORT).show();
