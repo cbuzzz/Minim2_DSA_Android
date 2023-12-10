@@ -27,7 +27,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class LogIn extends AppCompatActivity {
-
     Button register;
     Button login;
     APITrappy apiTrappy;
@@ -54,7 +53,6 @@ public class LogIn extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 TextInputEditText username;
                 username = (TextInputEditText) findViewById(R.id.inputUsername2);
                 user = username.getText().toString();
@@ -85,6 +83,8 @@ public class LogIn extends AppCompatActivity {
                             TextView success = (TextView) findViewById(R.id.notif);
                             success.setText("Usuario o contraseña incorrecto");
                             success.setVisibility(View.VISIBLE);
+                            Intent main= new Intent (LogIn.this, LogIn.class);
+                            startActivity(main);
                         }
                     }
                     @Override

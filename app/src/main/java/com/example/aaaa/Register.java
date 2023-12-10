@@ -107,11 +107,15 @@ public class Register extends AppCompatActivity {
                                 }
                             }, 2000);
                         } else if (response.code() == 404) {
-                            TextView fail1 = (TextView) findViewById(R.id.Notif);
-                            fail1.setText("Algunos de los datos introducidos no son válidos.");
-                            fail1.setVisibility(View.VISIBLE);
-                            Intent i = new Intent(Register.this, Register.class);
-                            startActivity(i);
+                            TextView success = (TextView) findViewById(R.id.Notif);
+                            success.setText("Algunos de los datos introducidos no son válidos.");
+                            success.setVisibility(View.VISIBLE);
+                            timer.schedule(new TimerTask() {
+                                public void run() {
+                                    Intent i = new Intent(Register.this, Register.class);
+                                    startActivity(i);
+                                }
+                            }, 2000);
                         }
                     }
                     @Override

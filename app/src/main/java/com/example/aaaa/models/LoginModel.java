@@ -1,19 +1,19 @@
 package com.example.aaaa.models;
 
 public class LoginModel {
-    private String nombre;
+    private String username;
     private String password;
     public LoginModel(){
     }
     public LoginModel (String username, String password){
-        this.nombre=username;
+        this.username=username;
         this.password=password;
     }
     public String getUsername() {
-        return nombre;
+        return username;
     }
     public void setUsername(String username) {
-        this.nombre = username;
+        this.username = username;
     }
     public String getPassword() {
         return password;
@@ -22,6 +22,6 @@ public class LoginModel {
         this.password = password;
     }
     public String toString(){
-        return nombre;
+        return username;
     }
 }
