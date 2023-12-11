@@ -70,9 +70,11 @@ public class LogIn extends AppCompatActivity {
                         code = String.valueOf(response.code());
                         Log.d("Code", ""+response.code());
                         if(code.equals("201")){
+                            /*
                             editor = sharedPref.edit();
                             editor.putString(KEY_NOMBRE, user);
                             editor.apply();
+                             */
                             Intent main= new Intent (LogIn.this, Home.class);
                             startActivity(main);
                             TextView success = (TextView) findViewById(R.id.notif);

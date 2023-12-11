@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -13,6 +14,7 @@ import com.example.aaaa.models.Item;
 
 public class Shop extends AppCompatActivity {
     ImageButton volver2;
+    ImageButton imagenBoton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +37,13 @@ public class Shop extends AppCompatActivity {
         MyAdapter adapter = new MyAdapter();
         recyclerView.setAdapter(adapter);
         adapter.setItems(Item.getData());
+        adapter.setOnItemClickListener(new MyAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClick(Item item) {
+                //Aquí recibe el item sobre el que hemos hecho click
+                String Item = item.getNombre();
+                Log.d("Nombre item: ","" + Item);
+            }
+        });
     }
 }
