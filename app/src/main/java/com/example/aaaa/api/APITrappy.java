@@ -23,6 +23,8 @@ public interface APITrappy {
         @POST("/dsaApp/jugador/Login")
         Call<Void> logIn(@Body LoginModel logIn);
          */
+        @POST("player")
+        Call<Void> comprar(@Body Item item);
         @POST("player/register")
         Call<Void> register(@Body Usuario register);
         @GET("items/shop")
