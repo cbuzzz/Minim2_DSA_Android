@@ -29,6 +29,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -40,6 +43,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.1.0")
     implementation("com.github.bumptech.glide:glide:4.11.0")
     implementation("com.squareup.okhttp3:logging-interceptor:3.9.0")
+    implementation("androidx.navigation:navigation-fragment:2.5.3")
+    implementation("androidx.navigation:navigation-ui:2.5.3")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
