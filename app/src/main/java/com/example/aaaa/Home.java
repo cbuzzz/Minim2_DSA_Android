@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class Home extends AppCompatActivity {
     Button shop;
-    Button login;
+
     Button logout;
     private void clearAuthenticationInfo() {
         SharedPreferences sharedPref = getSharedPreferences("AuthPrefs", MODE_PRIVATE);
@@ -28,14 +28,6 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent (Home.this, Shop.class);
-                startActivity(i);
-            }
-        });
-        login = (Button) findViewById(R.id.salirBtn);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Home.this, LogIn.class);
                 startActivity(i);
             }
         });

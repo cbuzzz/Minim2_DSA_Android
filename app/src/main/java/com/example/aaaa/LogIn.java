@@ -1,5 +1,6 @@
 package com.example.aaaa;
 
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -8,10 +9,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.aaaa.models.LoginModel;
 import com.example.aaaa.models.Usuario;
@@ -36,6 +33,8 @@ public class LogIn extends AppCompatActivity {
     String user;
     String UserPassword;
 
+    private ProgressBar progressBar;
+
 
     private void saveAuthenticationState(boolean isAuthenticated) {
         sharedPref = getSharedPreferences("AuthPrefs", MODE_PRIVATE);
@@ -54,6 +53,8 @@ public class LogIn extends AppCompatActivity {
         Timer timer = new Timer();
         register = (Button) findViewById(R.id.RegisterBtn);
         login = (Button) findViewById(R.id.LoginBtn);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +64,7 @@ public class LogIn extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 TextInputEditText username;
                 username = (TextInputEditText) findViewById(R.id.inputUsername2);
                 user = username.getText().toString();
@@ -84,14 +86,26 @@ public class LogIn extends AppCompatActivity {
                             success.setText("Te has logeado correctamente");
                             success.setVisibility(View.VISIBLE);
                             saveAuthenticationState(true);
-                            startActivity(home);
+                            timer.schedule(new TimerTask() {
+                                public void run() {
+                                    /*progressBar.setVisibility(View.GONE);*/
+                                    startActivity(home);
+                                }
+                            }, 2000);
+
+
                         }
                         else if (code.equals("404")){
                             TextView success = (TextView) findViewById(R.id.notif);
                             success.setText("Usuario o contraseña incorrecto");
                             success.setVisibility(View.VISIBLE);
 
-                            startActivity(l);
+                            timer.schedule(new TimerTask() {
+                                public void run() {
+                                    /*progressBar.setVisibility(View.GONE);*/
+                                    startActivity(l);
+                                }
+                            }, 2000);
                         }
                     }
                     @Override
@@ -99,7 +113,7 @@ public class LogIn extends AppCompatActivity {
                         String msg = "Error in retrofit: " + t.toString();
                         Log.d("Code",msg);
                         Toast.makeText(getApplicationContext(),"msg", Toast.LENGTH_SHORT).show();
-
+                        /*progressBar.setVisibility(View.GONE);*/
                         startActivity(l);
                     }
                 });
