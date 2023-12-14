@@ -35,6 +35,12 @@ public class LogIn extends AppCompatActivity {
     private static final String KEY_NOMBRE = "";
     String user;
     String UserPassword;
+    private void saveAuthenticationState(boolean isAuthenticated) {
+        sharedPref = getSharedPreferences("AuthPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean("is_authenticated", isAuthenticated);
+        editor.apply();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,16 +76,13 @@ public class LogIn extends AppCompatActivity {
                         code = String.valueOf(response.code());
                         Log.d("Code", ""+response.code());
                         if(code.equals("201")){
-                            /*
-                            editor = sharedPref.edit();
-                            editor.putString(KEY_NOMBRE, user);
-                            editor.apply();
-                             */
+
                             Intent main= new Intent (LogIn.this, Home.class);
                             startActivity(main);
                             TextView success = (TextView) findViewById(R.id.notif);
                             success.setText("Te has logeado correctamente");
                             success.setVisibility(View.VISIBLE);
+                            saveAuthenticationState(true);
                         }
                         else if (code.equals("404")){
                             TextView success = (TextView) findViewById(R.id.notif);
@@ -100,34 +103,6 @@ public class LogIn extends AppCompatActivity {
                 });
                 Log.d("Code", "end login");
             }
-             });
-    }
-}
-/*
-                String UserName = getIntent().getExtras().getString("user");
-                Log.d("Valor username: ", String.valueOf(UserName));
-                String Password = getIntent().getExtras().getString("password");
-                Log.d("Valor password: ", String.valueOf(UserPassword));
-
-                if ((user.equals(UserName)) && UserPassword.equals(Password)) {
-                    TextView success = (TextView) findViewById(R.id.notif);
-                    success.setText("Te has logeado correctamente");
-                    success.setVisibility(View.VISIBLE);
-                    timer.schedule(new TimerTask() {
-                        public void run() {
-                            Intent i = new Intent(LogIn.this, Home.class);
-                            startActivity(i);
-                        }
-                    }, 2000);
-                } else {
-                    TextView success = (TextView) findViewById(R.id.notif);
-                    success.setText("Usuario o contraseña incorrecto");
-                    success.setVisibility(View.VISIBLE);
-                }
-            }
         });
     }
 }
-
- */
-

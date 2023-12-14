@@ -131,7 +131,7 @@ public class Register extends AppCompatActivity {
             }
         });
     }
-    /*
+
     public void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -141,42 +141,6 @@ public class Register extends AppCompatActivity {
         editor.putString(TEXT4, phone);
         editor.apply();
     }
-     */
+
 }
 
- /*
-
-                if((UserPassword1.equals(UserPassword2)) && (!user1.equals("")) && (!UserPassword1.equals("")) && (!phone.equals(""))) {
-                    //AQUÍ DEBERÁ AÑADIR EL USUARIO REGISTRADO A LA BBDD
-                    USER = user1;
-                    PASSWORD = UserPassword1;
-                    PHONE = phone;
-                    TextView success = (TextView) findViewById(R.id.Notif);
-                    success.setText("Te has registrado correctamente");
-                    success.setVisibility(View.VISIBLE);
-                    timer.schedule(new TimerTask() {
-                        public void run() {
-                            Intent i = new Intent (Register.this, LogIn.class);
-                            i.putExtra("user", user1);
-                            i.putExtra("password", UserPassword1);
-                            startActivity(i);
-
-                        }}, 2000);
-                }
-
-                else if((user1.equals("")) || (UserPassword1.equals("")) || (phone.equals(""))){
-                    TextView fail = (TextView) findViewById(R.id.Notif);
-                    fail.setText("Alguno de los datos introducidos no son válidos");
-                    fail.setVisibility(View.VISIBLE);
-                }
-                else {
-                    TextView fail1 = (TextView) findViewById(R.id.Notif);
-                    fail1.setText("Las contraseñas no coinciden");
-                    fail1.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-    }
-}
-
-  */
