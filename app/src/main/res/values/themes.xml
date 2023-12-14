@@ -7,7 +7,7 @@
 
     <style name="Theme.AAAA" parent="Base.Theme.AAAA"/>
 
-    <style name="SplashTheme" parent="Theme.Material3.Dark">
+    <style name="SplashTheme" parent="Theme.Material3.Dark.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
 
     </style>
