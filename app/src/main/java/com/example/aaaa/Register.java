@@ -51,7 +51,6 @@ public class Register extends AppCompatActivity {
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Register.this, LogIn.class);
                 startActivity(i);
             }
         });
@@ -84,7 +83,7 @@ public class Register extends AppCompatActivity {
 
                 Usuario usuario = new Usuario(user1, UserPassword1, phone, mail);
 
-                Intent intent;
+
 
                 apiTrappy.register(new com.example.aaaa.models.Usuario(user1,UserPassword1,phone,mail)).enqueue(new Callback<Void>() {
                 //apiTrappy.register(new com.example.aaaa.models.RegisterModel(user1, UserPassword1, mail, tlf)).enqueue(new Callback<Void>() {
@@ -98,7 +97,6 @@ public class Register extends AppCompatActivity {
                             success.setVisibility(View.VISIBLE);
                             timer.schedule(new TimerTask() {
                                 public void run() {
-                                    Intent i = new Intent(Register.this, LogIn.class);
                                     /*i.putExtra("user", user1);
                                     i.putExtra("password", UserPassword1);
                                      */
@@ -112,8 +110,26 @@ public class Register extends AppCompatActivity {
                             success.setVisibility(View.VISIBLE);
                             timer.schedule(new TimerTask() {
                                 public void run() {
-                                    Intent i = new Intent(Register.this, Register.class);
-                                    startActivity(i);
+                                    /*username.setText("");
+                                    phonenumber.setText("");
+                                    mailaddress.setText("");
+                                    password1.setText("");
+                                    password2.setText("");*/
+                                    Intent o = new Intent(Register.this, Register.class);
+                                    startActivity(o);
+                                }
+                            }, 2000);
+                        }
+                        else if (response.code() == 401) {
+                            TextView success = (TextView) findViewById(R.id.Notif);
+                            success.setText("Las contraseñas no coinciden.");
+                            success.setVisibility(View.VISIBLE);
+                            timer.schedule(new TimerTask() {
+                                public void run() {
+                                    /*password1.setText("");
+                                    password2.setText("");*/
+                                    Intent o = new Intent(Register.this, Register.class);
+                                    startActivity(o);
                                 }
                             }, 2000);
                         }
@@ -123,8 +139,8 @@ public class Register extends AppCompatActivity {
                         String msg = "Error in retrofit: " + t.toString();
                         Log.d("Mensaje error Register", msg);
                         Toast.makeText(getApplicationContext(), "msg", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(Register.this, Register.class);
-                        startActivity(i);
+                        Intent o = new Intent(Register.this, Register.class);
+                        startActivity(o);
                     }
                 });
                 Log.d("Code", "end login");

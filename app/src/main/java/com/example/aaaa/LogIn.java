@@ -35,6 +35,8 @@ public class LogIn extends AppCompatActivity {
     private static final String KEY_NOMBRE = "";
     String user;
     String UserPassword;
+
+
     private void saveAuthenticationState(boolean isAuthenticated) {
         sharedPref = getSharedPreferences("AuthPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -43,6 +45,9 @@ public class LogIn extends AppCompatActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent reg = new Intent (LogIn.this, Register.class);
+        Intent home = new Intent (LogIn.this, Home.class);
+        Intent l = new Intent (LogIn.this, LogIn.class);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         apiTrappy = Client.getInstance().getApiTrappy();
@@ -52,8 +57,7 @@ public class LogIn extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent (LogIn.this, Register.class);
-                startActivity(i);
+                startActivity(reg);
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
@@ -76,20 +80,18 @@ public class LogIn extends AppCompatActivity {
                         code = String.valueOf(response.code());
                         Log.d("Code", ""+response.code());
                         if(code.equals("201")){
-
-                            Intent main= new Intent (LogIn.this, Home.class);
-                            startActivity(main);
                             TextView success = (TextView) findViewById(R.id.notif);
                             success.setText("Te has logeado correctamente");
                             success.setVisibility(View.VISIBLE);
                             saveAuthenticationState(true);
+                            startActivity(home);
                         }
                         else if (code.equals("404")){
                             TextView success = (TextView) findViewById(R.id.notif);
                             success.setText("Usuario o contraseña incorrecto");
                             success.setVisibility(View.VISIBLE);
-                            Intent main= new Intent (LogIn.this, LogIn.class);
-                            startActivity(main);
+
+                            startActivity(l);
                         }
                     }
                     @Override
@@ -97,8 +99,8 @@ public class LogIn extends AppCompatActivity {
                         String msg = "Error in retrofit: " + t.toString();
                         Log.d("Code",msg);
                         Toast.makeText(getApplicationContext(),"msg", Toast.LENGTH_SHORT).show();
-                        Intent main= new Intent (LogIn.this, LogIn.class);
-                        startActivity(main);
+
+                        startActivity(l);
                     }
                 });
                 Log.d("Code", "end login");
