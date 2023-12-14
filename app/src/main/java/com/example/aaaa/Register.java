@@ -1,5 +1,6 @@
 package com.example.aaaa;
 
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,11 +8,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.aaaa.api.APITrappy;
 import com.example.aaaa.api.Client;
@@ -38,20 +34,24 @@ public class Register extends AppCompatActivity {
     String UserPassword2;
     APITrappy apiTrappy;
     Button register;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         apiTrappy = Client.getInstance().getApiTrappy();
-        Intent i = new Intent(Register.this, LogIn.class);
+        Intent l = new Intent(Register.this, LogIn.class);
         Timer timer = new Timer();
         apiTrappy = Client.getInstance().getApiTrappy();
+
+        progressBar = findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.GONE);
 
         volver = findViewById(R.id.volverBtn);
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(i);
+                startActivity(l);
             }
         });
 
@@ -60,6 +60,7 @@ public class Register extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
 
                 TextInputEditText username = (TextInputEditText) findViewById(R.id.username);
                 user1 = username.getText().toString();
@@ -95,12 +96,14 @@ public class Register extends AppCompatActivity {
                             TextView success = (TextView) findViewById(R.id.Notif);
                             success.setText("Te has registrado correctamente.");
                             success.setVisibility(View.VISIBLE);
+
                             timer.schedule(new TimerTask() {
                                 public void run() {
                                     /*i.putExtra("user", user1);
                                     i.putExtra("password", UserPassword1);
                                      */
-                                    startActivity(i);
+                                    startActivity(l);
+                                    progressBar.setVisibility(View.GONE);
 
                                 }
                             }, 2000);
@@ -108,6 +111,7 @@ public class Register extends AppCompatActivity {
                             TextView success = (TextView) findViewById(R.id.Notif);
                             success.setText("Algunos de los datos introducidos no son válidos.");
                             success.setVisibility(View.VISIBLE);
+
                             timer.schedule(new TimerTask() {
                                 public void run() {
                                     /*username.setText("");
@@ -117,6 +121,7 @@ public class Register extends AppCompatActivity {
                                     password2.setText("");*/
                                     Intent o = new Intent(Register.this, Register.class);
                                     startActivity(o);
+                                    progressBar.setVisibility(View.GONE);
                                 }
                             }, 2000);
                         }
@@ -124,12 +129,14 @@ public class Register extends AppCompatActivity {
                             TextView success = (TextView) findViewById(R.id.Notif);
                             success.setText("Las contraseñas no coinciden.");
                             success.setVisibility(View.VISIBLE);
+
                             timer.schedule(new TimerTask() {
                                 public void run() {
                                     /*password1.setText("");
                                     password2.setText("");*/
                                     Intent o = new Intent(Register.this, Register.class);
                                     startActivity(o);
+                                    progressBar.setVisibility(View.GONE);
                                 }
                             }, 2000);
                         }
@@ -138,6 +145,7 @@ public class Register extends AppCompatActivity {
                     public void onFailure(Call<Void> call, Throwable t) {
                         String msg = "Error in retrofit: " + t.toString();
                         Log.d("Mensaje error Register", msg);
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(), "msg", Toast.LENGTH_SHORT).show();
                         Intent o = new Intent(Register.this, Register.class);
                         startActivity(o);
