@@ -24,14 +24,13 @@ import retrofit2.Response;
 
 public class Shop extends AppCompatActivity {
     ImageButton volver2;
-    ImageButton imagenBoton;
     APITrappy apiTrappy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
-        volver2 = findViewById(R.id.volver2);
+        volver2 = findViewById(R.id.volver4);
 
         Timer timer = new Timer();
         volver2.setOnClickListener(new View.OnClickListener() {

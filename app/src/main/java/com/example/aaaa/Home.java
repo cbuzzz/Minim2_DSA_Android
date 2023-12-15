@@ -11,6 +11,8 @@ import android.widget.Button;
 
 public class Home extends AppCompatActivity {
     Button shop;
+    Button shopDash1;
+    Button shopDash2;
 
     Button logout;
     private ProgressBar progressBar;
@@ -36,6 +38,28 @@ public class Home extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        shopDash1 = (Button) findViewById(R.id.shopDashBtn);
+        shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                Intent i = new Intent (Home.this, ShopDashboard.class);
+                startActivity(i);
+            }
+        });
+
+        shopDash2 = (Button) findViewById(R.id.shopDashBtn2);
+        shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
+                Intent i = new Intent (Home.this, ShopDashboard2.class);
+                startActivity(i);
+            }
+        });
+
+
         logout = (Button) findViewById(R.id.Logout);
         logout.setOnClickListener(new View.OnClickListener() {
            @Override

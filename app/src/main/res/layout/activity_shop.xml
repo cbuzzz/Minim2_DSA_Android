@@ -17,12 +17,12 @@
             android:layout_height="43dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/volver2"
+            app:layout_constraintStart_toEndOf="@+id/volver4"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="invisible" />
 
         <ImageButton
-            android:id="@+id/volver2"
+            android:id="@+id/volver4"
             android:layout_width="93dp"
             android:layout_height="67dp"
             android:contentDescription="Volver a Home"
