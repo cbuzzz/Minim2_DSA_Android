@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aaaa.api.APITrappy;
+import com.example.aaaa.api.Client;
 import com.example.aaaa.models.Item;
 
 import java.util.Timer;
@@ -29,6 +30,7 @@ public class Shop extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
+        apiTrappy = Client.getInstance().getApiTrappy();
 
         volver2 = findViewById(R.id.volver4);
 
@@ -84,16 +86,17 @@ public class Shop extends AppCompatActivity {
                                     startActivity(i);
                                 }
                             }, 2000);
-                        } else if (response.code() == 404) {
+                        } else {
+                            TextView success = (TextView) findViewById(R.id.Notifi);
+                            success.setText("No se ha podido realizar la compra.");
+                            success.setVisibility(View.VISIBLE);
                             timer.schedule(new TimerTask() {
                                 public void run() {
-                                    TextView success = (TextView) findViewById(R.id.Notifi);
-                                    success.setText("No se ha podido realizar la compra.");
-                                    success.setVisibility(View.VISIBLE);
+
                                     Intent i = new Intent(Shop.this, Shop.class);
                                     startActivity(i);
                                 }
-                            }, 2000);
+                            }, 3000);
                         }
                     }
                     @Override
