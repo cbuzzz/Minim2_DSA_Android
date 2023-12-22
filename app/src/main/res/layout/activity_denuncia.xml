@@ -5,8 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".Register">
+    tools:context=".Denuncia">
 
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nameText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Tu nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="470dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/denunciaText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Escribe aquí tu denuncia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="384dp" />
 
     <Button
         android:id="@+id/buttonSend"
@@ -14,12 +34,10 @@
         android:layout_height="62dp"
         android:layout_marginBottom="80dp"
         android:onClick="register"
-        android:text="REGISTER"
+        android:text="Enviar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/senderText"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/volverBtn"
@@ -49,38 +67,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.873" />
 
-    <EditText
-        android:id="@+id/password1"
-        android:layout_width="232dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="9dp"
-        android:ems="10"
-        android:hint="Escribe aquí tu contraseña"
-        android:inputType="textPassword"
-        android:onClick="password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.378" />
-
-    <EditText
-        android:id="@+id/senderText"
-        android:layout_width="232dp"
-        android:layout_height="70dp"
-        android:ems="10"
-        android:hint="Confirma aquí tu contraseña"
-        android:inputType="textPassword"
-        android:onClick="password"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password1"
-        app:layout_constraintVertical_bias="0.089" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="409dp"
@@ -96,25 +82,14 @@
             android:id="@+id/fechaText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre de usuario" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/password1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
-
+            android:hint="Fecha" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/denunciaTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="REGISTER"
+        android:text="DENUNCIA"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/Notif"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,30 +101,19 @@
         android:id="@+id/titleText"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Dirección de correo"
-        app:layout_constraintBottom_toTopOf="@+id/password1"
+        android:hint="Título"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
+        tools:layout_editor_absoluteY="302dp" />
 
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="394dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Número de teléfono"
-        android:inputType="phone"
-        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
     <ProgressBar
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar2"
-            app:layout_constraintStart_toEndOf="@+id/volverBtn" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.01999998" app:layout_constraintHorizontal_bias="0.93"/>
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar2"
+        app:layout_constraintStart_toEndOf="@+id/volverBtn" app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01999998" app:layout_constraintHorizontal_bias="0.93"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

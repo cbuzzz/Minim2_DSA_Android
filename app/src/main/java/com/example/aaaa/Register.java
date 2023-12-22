@@ -17,7 +17,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 public class Register extends AppCompatActivity {
@@ -56,13 +55,13 @@ public class Register extends AppCompatActivity {
         });
 
 
-        register = (Button) findViewById(R.id.RegisterBtn);
+        register = (Button) findViewById(R.id.buttonSend);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
 
-                TextInputEditText username = (TextInputEditText) findViewById(R.id.username);
+                TextInputEditText username = (TextInputEditText) findViewById(R.id.fechaText);
                 user1 = username.getText().toString();
                 Log.d("Valor username: ", String.valueOf(user1));
 
@@ -70,7 +69,7 @@ public class Register extends AppCompatActivity {
                 phone = phonenumber.getText().toString();
                 Log.d("Valor teléfono: ", String.valueOf(phone));
 
-                TextInputEditText mailaddress = (TextInputEditText) findViewById(R.id.mail);
+                TextInputEditText mailaddress = (TextInputEditText) findViewById(R.id.titleText);
                 mail = mailaddress.getText().toString();
                 Log.d("Valor mail: ", String.valueOf(mail));
 
@@ -78,7 +77,7 @@ public class Register extends AppCompatActivity {
                 UserPassword1 = password1.getText().toString();
                 Log.d("Valor password 1: ", String.valueOf(UserPassword1));
 
-                EditText password2 = (EditText) findViewById(R.id.password2);
+                EditText password2 = (EditText) findViewById(R.id.senderText);
                 UserPassword2 = password2.getText().toString();
                 Log.d("Valor password 2: ", String.valueOf(UserPassword2));
 

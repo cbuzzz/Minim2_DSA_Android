@@ -3,7 +3,6 @@ package com.example.aaaa;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.aaaa.models.LoginModel;
-import com.example.aaaa.models.Usuario;
 import com.google.android.material.textfield.TextInputEditText;
 import com.example.aaaa.api.APITrappy;
 import com.example.aaaa.api.Client;
@@ -51,7 +49,7 @@ public class LogIn extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         apiTrappy = Client.getInstance().getApiTrappy();
         Timer timer = new Timer();
-        register = (Button) findViewById(R.id.RegisterBtn);
+        register = (Button) findViewById(R.id.buttonSend);
         login = (Button) findViewById(R.id.LoginBtn);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);

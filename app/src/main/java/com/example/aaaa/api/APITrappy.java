@@ -1,6 +1,8 @@
 package com.example.aaaa.api;
 
 import java.util.List;
+
+import com.example.aaaa.models.DenunciaModel;
 import com.example.aaaa.models.Item;
 import com.example.aaaa.models.Usuario;
 import com.example.aaaa.models.LoginModel;
@@ -32,5 +34,9 @@ public interface APITrappy {
 
         @GET("items/shop")
         Call<Item> getItems(@Body Item item);
+
+        @POST("player/issue")
+        Call<Void> denunciar(@Body DenunciaModel denuncia);
+
 }
 
